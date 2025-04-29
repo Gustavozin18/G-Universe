@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Crie uma Conta</title>
+</head>
+<body>
+
+<h2>Crie sua conta</h2>
+<form id="registerForm">
+  <input type="text" id="username" placeholder="Nome de usuário" required><br><br>
+  <button type="submit">Registrar</button>
+</form>
+
+<script>
+document.getElementById('registerForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const username = document.getElementById('username').value;
+  localStorage.setItem('usuario', username);
+  window.location.href = 'perfil.html'; // Redireciona para o perfil
+});
+</script>
+
+</body>
+</html>

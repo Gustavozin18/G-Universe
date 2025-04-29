@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Postagem de Desenhos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      padding: 50px;
+    }
+    .post-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 400px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .post-container h2 {
+      text-align: center;
+    }
+    .post-container input, .post-container textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .post-container button {
+      width: 100%;
+      padding: 10px;
+      background: #4CAF50;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .post-container button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<div class="post-container">
+  <h2>Postar Desenho</h2>
+  <form action="/postar-desenho" method="post" enctype="multipart/form-data">
+    <input type="text" name="titulo" placeholder="Título do Desenho" required>
+    <textarea name="descricao" rows="4" placeholder="Descrição" required></textarea>
+    <input type="file" name="imagem" accept="image/*" required>
+    <button type="submit">Publicar</button>
+  </form>
+</div>
+
+</body>
+</html>

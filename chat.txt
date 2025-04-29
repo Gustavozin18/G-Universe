@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Simples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .chat-container {
+            width: 400px;
+            height: 500px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+        }
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #ccc;
+        }
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+        .chat-input button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        .chat-input button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            margin-bottom: 10px;
+        }
+        .message.you {
+            text-align: right;
+            color: blue;
+        }
+        .message.other {
+            text-align: left;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-messages" id="chat">
+        <!-- Mensagens aparecem aqui -->
+    </div>
+    <div class="chat-input">
+        <input type="text" id="messageInput" placeholder="Digite sua mensagem...">
+        <button onclick="sendMessage()">Enviar</button>
+    </div>
+</div>
+
+<script>
+    function sendMessage() {
+        var input = document.getElementById("messageInput");
+        var message = input.value.trim();
+        if (message !== "") {
+            var chat = document.getElementById("chat");
+            var messageElement = document.createElement("div");
+            messageElement.classList.add("message", "you");
+            messageElement.textContent = message;
+            chat.appendChild(messageElement);
+            chat.scrollTop = chat.scrollHeight; // Scroll automático para última mensagem
+            input.value = "";
+        }
+    }
+</script>
+
+</body>
+</html>
